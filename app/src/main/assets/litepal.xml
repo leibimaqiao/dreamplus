@@ -1,0 +1,12 @@
+<litepal>
+    <dbname value="dream_plus"/>
+
+    <version value="1"/>
+
+    <list>
+        <mapping class="com.dreamplus.android.db.Province"/>
+        <mapping class="com.dreamplus.android.db.City"/>
+        <mapping class="com.dreamplus.android.db.County"/>
+    </list>
+
+</litepal>
