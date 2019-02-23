@@ -1,6 +1,7 @@
 package com.dreamplus.android;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Layout;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.dreamplus.android.db.City;
 import com.dreamplus.android.db.County;
 import com.dreamplus.android.db.Province;
+import com.dreamplus.android.gson.Weather;
 import com.dreamplus.android.util.HttpUtil;
 import com.dreamplus.android.util.Utility;
 
@@ -106,6 +108,13 @@ public class ChooseAreaFragment extends Fragment{
                 } else if (currentLevel == LEVEL_CITY) {
                     selectedCity = cityList.get(position);
                     queryCounties();
+                } else if(currentLevel == LEVEL_COUNTY){
+                    String weatherId = countyList.get(position).getWeatherId();
+                    Intent intent = new Intent(getActivity(), WeatherActivity.class);
+                    intent.putExtra("weather_id", weatherId);
+                    startActivity(intent);
+                    getActivity().finish();
+
                 }
             }
         });
